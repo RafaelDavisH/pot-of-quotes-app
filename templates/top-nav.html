@@ -1,0 +1,23 @@
+{% block navbar %}
+<nav class=" cntnr__style nav-top fixed-top navbar navbar-expand " role="navigation">
+  <a class="navbar-brand" href="{{url_for('landPage')}}"><h4 >Pot Of Quotes</h4></a>
+  <section class="navbar-creator">
+    <img src="{{ creator.picture }}" class="user-pic rounded-circle" alt="user's picture">
+    <span class="user-name">{{ creator.name }}</span>
+  </section>
+  <section class=" navbar-text session ">
+  {% if 'username' not in session %}
+  <a class="login" href="{{url_for('showLogin')}}">
+    <p class="log">Login</p>
+    <i class="fas fa-sign-in-alt fa-lg"></i>
+  </a>
+  {% else %}
+  <a class="login" href="{{url_for('disconnect')}}">
+    <p class="log">Logout</p>
+    <i class="fas fa-lg fa-sign-out-alt"></i>
+  </a>
+  {% endif %}
+  </section>
+
+</nav>
+{% endblock %}

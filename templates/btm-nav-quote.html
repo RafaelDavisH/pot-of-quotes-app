@@ -1,0 +1,20 @@
+{% block bottom %}
+
+<nav class="cntnr__style navbar fixed-bottom navbar-expand">
+  <div class="col-lg-12 btm-navbar">
+    <section class="rounded-circle plus">
+      <a href="{{url_for('newQuote', category_name=category.name)}}">
+        <i class="fas fa-2x fa-plus"></i>
+      </a>
+    </section>
+      <a class="categories-icon" href="{{url_for('showCategories')}}">
+        <i class="far fa-3x fa-list-alt"></i>
+      </a>
+
+      <a class="quotes-icon" href="{{url_for('showAllQuotes', category_name=category.name)}}">
+        <i class="fas fa-3x fa-quote-right"></i>
+      </a>
+
+  </div>
+</nav>
+{% endblock %}
