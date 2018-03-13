@@ -36,6 +36,7 @@ _To run, develop and test the application locally the following are needed._
 6. Access and test application by visiting `http://localhost:8000` locally.
 
 ## JSON Endpoints
+
 > Endpoint `/api/v1/categories` Returns a list of all the categories.
 <img src="assets/categories.png">
 
@@ -44,3 +45,28 @@ _To run, develop and test the application locally the following are needed._
 <img src="assets/quote.png">
 
 ## Restful Endpoints
+#### CRUD for Quotes
+`/categories/<string:category_name>/quotes/new`
+<img src="assets/newQuote.png">
+
+`/categories/<string:category_name>/quotes/<int:quote_id>/edit`
+<img src="assets/editQuote.png">
+
+`/categories/<string:category_name>/quotes/<int:quote_id>/delete`
+<img src="assets/deleteQuote.png">
+
+## Sign-In with Google
+`'/login'`
+<img src="singIn.png">
+
+## TODO
+- Sign Up
+- like functionality
+- Ability to add background images
+- Share functionality
+
+## ISSUES with 
+`http:potofquotes.pythonanywhere.com`
+ - Sign In not working
+  * Secret Key missing
+- Broken "newQuote" link 

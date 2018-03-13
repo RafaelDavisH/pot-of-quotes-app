@@ -250,7 +250,7 @@ def showQuote(category_name, quote_id):
 
 
 # Add new quote under category
-@app.route('/categories/<string:category_name>/quotes', methods=['GET', 'POST'])
+@app.route('/categories/<string:category_name>/quotes/new', methods=['GET', 'POST'])
 def newQuote(category_name):
     category = session.query(Category).filter_by(name=category_name).one()
     if 'username' not in login_session:
@@ -267,7 +267,7 @@ def newQuote(category_name):
 
 
 # Edit quote selected under category
-@app.route('/categories/<string:category_name>/quotes/<int:quote_id>', methods=['GET', 'POST'])
+@app.route('/categories/<string:category_name>/quotes/<int:quote_id>/edit', methods=['GET', 'POST'])
 def editQuote(category_name, quote_id):
     editedQuote = session.query(Quote).filter_by(id=quote_id).one()
     category = session.query(Category).filter_by(name=category_name).one()
@@ -295,7 +295,7 @@ def editQuote(category_name, quote_id):
 
 
 # Delete quote selected under category
-@app.route('/categories/<string:category_name>/quotes/<int:quote_id>', methods=['GET', 'POST'])
+@app.route('/categories/<string:category_name>/quotes/<int:quote_id>/delete', methods=['GET', 'POST'])
 def deleteQuote(category_name, quote_id):
     quoteToDelete = session.query(Quote).filter_by(id=quote_id).one()
     category = session.query(Category).filter_by(name=category_name).one()
