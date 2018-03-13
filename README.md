@@ -8,7 +8,7 @@ authentication system. This application uses persistent data storage to create a
 The registration and authentication its done using OAuth 2.0 to access Google API and utilize Google Sign-In. 
 The application also provides three secured JSON Endpoints.
 
-<img src="assets/landingPage.png width="400">
+<img src="assets/landingPage.png" width="400">
 
 
 ## Implementation
@@ -38,32 +38,43 @@ _To run, develop and test the application locally the following are needed._
 ## JSON Endpoints
 
 > Endpoint `/api/v1/categories` Returns a list of all the categories.
-<img src="assets/categories.png">
+<img src="assets/viewCategories.png">
 
 > Endpoint `/api/v1/categories/quotes` Returns a list of all the quotes under a category.
+<img src="assets/viewquotes.png">
+
 > Endpoint `/api/v1/categories/quotes/1` Returns a single quote under a category.
-<img src="assets/quote.png">
+<img src="assets/viewQuote.png">
 
 ## Restful Endpoints
 #### CRUD for Quotes
 `/categories/<string:category_name>/quotes/new`
+
 <img src="assets/newQuote.png" width="400">
 
+
 `/categories/<string:category_name>/quotes/<int:quote_id>/edit`
+
 <img src="assets/editQuote.png" width="400">
 
+
 `/categories/<string:category_name>/quotes/<int:quote_id>/delete`
+
 <img src="assets/deleteQuote.png" width="400">
+
 
 ## Sign-In with Google
 `'/login'`
-<img src="singIn.png">
+
+<img src="signIn.png" width="400">
+
 
 ## TODO
 - Sign Up
 - like functionality
 - Ability to add background images
 - Share functionality
+
 
 ## ISSUES with 
 `www.potofquotes.pythonanywhere.com`
