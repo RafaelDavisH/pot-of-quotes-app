@@ -38,16 +38,32 @@ _To run, develop and test the application locally the following are needed._
 ## JSON Endpoints
 
 > Endpoint `/api/v1/categories` Returns a list of all the categories.
-<img src="assets/viewCategories.png">
+<img src="assets/categories.png">
 
 > Endpoint `/api/v1/categories/quotes` Returns a list of all the quotes under a category.
 <img src="assets/viewquotes.png">
 
 > Endpoint `/api/v1/categories/quotes/1` Returns a single quote under a category.
-<img src="assets/viewQuote.png">
+<img src="assets/quote.png">
 
 ## Restful Endpoints
+#### READ for Categories
+
+`/categories/`
+<img src="assets/viewCategories.png" width="400">
+
+
 #### CRUD for Quotes
+`/categories/<string:category_name>/quotes`
+
+<img src="assets/quotes.png" width="400">
+
+
+`/categories/<string:category_name>/quotes/<int:quote_id>`
+
+<img src="assets/viewQuote.png" width="400">
+
+
 `/categories/<string:category_name>/quotes/new`
 
 <img src="assets/newQuote.png" width="400">
@@ -66,7 +82,7 @@ _To run, develop and test the application locally the following are needed._
 ## Sign-In with Google
 `'/login'`
 
-<img src="signIn.png" width="400">
+<img src="assets/signIn.png" width="400">
 
 
 ## TODO
