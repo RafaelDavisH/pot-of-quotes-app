@@ -1,12 +1,11 @@
 {% block bottom %}
 
-<nav class="cntnr__style navbar fixed-bottom navbar-expand">
+<nav class="cntnr__style bottom-nav bar-expand navbar fixed-bottom ">
   <div class="col-lg-12 btm-navbar">
-    <section class="rounded-circle plus">
-      <a href="{{url_for('newQuote', category_name=category.name)}}">
+      <a class="rounded-circle plus" href="{{url_for('newQuote', category_name=category.name)}}">
         <i class="fas fa-2x fa-plus"></i>
       </a>
-    </section>
+
       <a class="categories-icon" href="{{url_for('showCategories')}}">
         <i class="far fa-3x fa-list-alt"></i>
       </a>

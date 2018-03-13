@@ -192,6 +192,7 @@ def categoriesJSON():
     categories = session.query(Category).all()
     return jsonify(Category=[i.serialize for i in categories])
 
+
 @app.route('/api/v1/categories/<string:category_name>/quotes')
 def categoryAllQuotesJSON(category_name):
     if 'username' not in login_session:
@@ -205,7 +206,8 @@ def categoryAllQuotesJSON(category_name):
 def categoryQuoteJSON(category_name, quote_id):
     if 'username' not in login_session:
         return redirect('/login')
-    quote = session.query(Quote).filter_by(id=quote_id).one()
+    category = session.query(Category).filter_by(id=category_name).one()
+    quote = session.query(Quote).filter_by(category=category, id=quote_id).one()
     return jsonify(Quote=quote.serialize)
 
 
@@ -251,7 +253,6 @@ def showQuote(category_name, quote_id):
 @app.route('/categories/<string:category_name>/quotes', methods=['GET', 'POST'])
 def newQuote(category_name):
     category = session.query(Category).filter_by(name=category_name).one()
-    categories = session.query(Category).order_by(asc(Category.name))
     if 'username' not in login_session:
         return redirect('/login')
     if request.method == 'POST':
@@ -262,7 +263,7 @@ def newQuote(category_name):
         flash('New Quote by Successfully Added')
         return redirect(url_for('showAllQuotes', category_name=category_name))
     else:
-        return render_template('newQuote.html', category_name=category_name, categories=categories, category=category)
+        return render_template('newQuote.html', category_name=category_name, category=category)
 
 
 # Edit quote selected under category
