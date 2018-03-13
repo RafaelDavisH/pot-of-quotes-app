@@ -50,6 +50,7 @@ _To run, develop and test the application locally the following are needed._
 #### READ for Categories
 
 `/categories/`
+
 <img src="assets/viewCategories.png" width="400">
 
 
