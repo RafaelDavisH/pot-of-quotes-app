@@ -8,7 +8,7 @@ authentication system. This application uses persistent data storage to create a
 The registration and authentication its done using OAuth 2.0 to access Google API and utilize Google Sign-In. 
 The application also provides three secured JSON Endpoints.
 
-<img src="assets/landingPage.png">
+<img src="assets/landingPage.png width="400">
 
 
 ## Implementation
@@ -47,13 +47,13 @@ _To run, develop and test the application locally the following are needed._
 ## Restful Endpoints
 #### CRUD for Quotes
 `/categories/<string:category_name>/quotes/new`
-<img src="assets/newQuote.png">
+<img src="assets/newQuote.png" width="400">
 
 `/categories/<string:category_name>/quotes/<int:quote_id>/edit`
-<img src="assets/editQuote.png">
+<img src="assets/editQuote.png" width="400">
 
 `/categories/<string:category_name>/quotes/<int:quote_id>/delete`
-<img src="assets/deleteQuote.png">
+<img src="assets/deleteQuote.png" width="400">
 
 ## Sign-In with Google
 `'/login'`
@@ -66,7 +66,7 @@ _To run, develop and test the application locally the following are needed._
 - Share functionality
 
 ## ISSUES with 
-`http:potofquotes.pythonanywhere.com`
+`www.potofquotes.pythonanywhere.com`
  - Sign In not working
   * Secret Key missing
 - Broken "newQuote" link 
