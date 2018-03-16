@@ -1,9 +1,9 @@
 __pychache__
 client_secret.json
 
-.idea/
+../.idea/
 
-.vagrant/
+../.vagrant/
 
 catalog/forum/
 
