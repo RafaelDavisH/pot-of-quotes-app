@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+{% block title %}<title>Pot Of Quotes</title>{% endblock %}
+  {% block navbar %}
+    {% include 'top-nav-public.html' ignore missing %}
+  {% endblock %}
+  {% block content %}
+  <div class="col-md-12 center col-lg-6">
+    <p>New Quote for:</p>
+    <h3 class="category-name">{{ category.name }}</h3>
+    <div class="border rounded form-div">
+      <form class="form-edit" action="{{url_for('newQuote', category_name= category_name)}}" method="POST">
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input id="author" class="form-control" type="text" size="30" name="author">
+        </div>
+        <div class="form-group">
+          <label for="description">Quote</label>
+          <textarea id="description" class="form-control"  rows="6" name="description">
+          </textarea>
+        </div>
+
+        <input class="btn btn-outline-primary btn-edit" type="submit" value="Create">
+
+        <a class="btn btn-outline-success btn-cancel" href="{{url_for('showAllQuotes', category_name=category_name)}}">Cancel</a>
+
+      </form>
+    </div>
+  </div>
+  {% endblock %}
+  {% block bottom %}
+    {% include 'btm-nav-nQuote.html' ignore missing %}
+  {% endblock %}

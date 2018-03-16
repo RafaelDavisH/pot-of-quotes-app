@@ -1,2 +1,12 @@
 __pychache__
 client_secret.json
+
+.idea/
+
+.vagrant/
+
+catalog/forum/
+
+catalog/tournament/
+
+CODEOWNERS

@@ -1,0 +1,17 @@
+{% block bottom %}
+
+<nav class="cntnr__style bottom-nav bar-expand navbar fixed-bottom ">
+  <div class="col-lg-12 btm-navbar">
+
+      <a class="categories-icon"href="{{url_for('showCategories')}}">
+        <i class="far fa-3x fa-list-alt"></i>
+      </a>
+
+      <a class="quotes-icon" href="{{url_for('showAllQuotes', category_name=category_name)}}">
+        <i class="fas fa-3x fa-quote-right"></i>
+      </a>
+
+
+  </div>
+</nav>
+{% endblock %}
