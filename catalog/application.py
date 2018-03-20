@@ -1,4 +1,5 @@
 #!/usr/bin/python2.7
+
 from flask import Flask, render_template, request, redirect, url_for, flash,\
     jsonify
 from sqlalchemy import create_engine, asc, func, Date, desc
@@ -41,7 +42,8 @@ def showLogin():
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
     """
-    Gathers data from Google Sign In API and places it inside a session variable.
+    Gathers data from Google Sign In API and places it inside a session
+    variable.
     """
     # Validate state token
     if request.args.get('state') != login_session['state']:
@@ -188,7 +190,6 @@ def gdisconnect():
         response.headers['Content-Type'] = 'application/json'
         return response
     # Execute HTTP GET request to revoke current token.
-    access_token = credentials.access_token
     url = 'https://accounts.google.com/o/oauth2/revoke?token=%s' % access_token
     h = httplib2.Http()
     result = h.request(url, 'GET')[0]
@@ -211,7 +212,6 @@ def gdisconnect():
                                             ' user'), 400)
         response.headers['Content-Type'] = 'application/json'
         return response
-
 
 
 @app.route('/api/v1/categories')

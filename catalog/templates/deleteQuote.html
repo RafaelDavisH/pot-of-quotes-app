@@ -10,7 +10,7 @@
     <div class="rounded border delete-div">
       <h4 class="form-title">Are you sure you want to delete this QUOTE ?</h4>
 
-      <form class="forma form-delete" action="{{ url_for('deleteQuote', category_id =  category_id, quote_id = quote.id)}}" method="post">
+      <form class="form-delete" action="{{ url_for('deleteQuote', category_name =  category_name, quote_id = quote.id)}}" method="post">
 
         <blockquote class="content--quote__style">{{ quote.description }}</blockquote>
         <p class="author-quote__style">Quote by <strong>{{ quote.author }}</strong>
@@ -18,7 +18,7 @@
         </p>
         <input class="btn btn-outline-danger btn-delete"  type="submit" value="Delete">
 
-        <a class="btn btn-outline-success btn-cancel" href="{{ url_for('showAllQuotes', category_id = category_id)}}">Cancel</a>
+        <a class="btn btn-outline-success btn-cancel" href="{{ url_for('showAllQuotes', category_name = category_name)}}">Cancel</a>
 
       </form>
     </div>
