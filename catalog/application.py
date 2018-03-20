@@ -1,7 +1,12 @@
 #!/usr/bin/python2.7
 
-from flask import Flask, render_template, request, redirect, url_for, flash,\
-    jsonify
+from flask import (Flask,
+                   render_template,
+                   request,
+                   redirect,
+                   url_for,
+                   flash,
+                   jsonify)
 from sqlalchemy import create_engine, asc, func, Date, desc
 from sqlalchemy.orm import relationship, sessionmaker
 from database_setup_app import Base, Category, Quote, User
@@ -340,10 +345,11 @@ def newQuote(category_name):
     :param category_name:
     :return: Form with 'author' and 'description'= quote, fields
     """
-    category = session.query(Category).filter_by(
-        name=category_name).one()
     if 'username' not in login_session:
         return redirect('/login')
+
+    category = session.query(Category).filter_by(
+        name=category_name).one()
     if request.method == 'POST':
         addNewQuote = Quote(author=request.form['author'],
                             description=request.form['description'],
@@ -374,12 +380,13 @@ def editQuote(category_name, quote_id):
     placeholders; current author and description for quote are
     visible for reference.
     """
+    if 'username' not in login_session:
+        return redirect('/login')
+
     editedQuote = session.query(Quote).filter_by(id=quote_id).one()
     category = session.query(Category).filter_by(name=category_name).one()
     creator = getUserInfo(Quote.user_id)
 
-    if 'username' not in login_session:
-        return redirect('/login')
     if login_session['user_id'] != editedQuote.user_id:
         return "<script>function.myFunction() {alert('You are not authorized" \
                " to edit this quote. Add your favorite quotes and share " \
@@ -418,11 +425,13 @@ def deleteQuote(category_name, quote_id):
     :return: Prompts with question to check if creator is sure of deleting
     quote.
     """
+    if 'username' not in login_session:
+        return redirect('/login')
+
     quoteToDelete = session.query(Quote).filter_by(id=quote_id).one()
     category = session.query(Category).filter_by(name=category_name).one()
     creator = getUserInfo(Quote.user_id)
-    if 'username' not in login_session:
-        return redirect('/login')
+
     if login_session['user_id'] != quoteToDelete.user_id:
         return "<script>function myFunction() {alert('You are not authorized" \
                " to delete this quote. Add your favorite quotes and share " \
